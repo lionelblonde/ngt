@@ -1,0 +1,21 @@
+# algo
+method: "iqlearn"
+# official IQ-Learn mujoco setup is one-step TD in the critic loss
+
+# optimizer
+# official mujoco scripts set this lower than the base config
+actor_lr: 3e-5
+
+# sac temperature
+# official IQ-Learn IL setup uses fixed alpha (no alpha autotuning)
+autotune: false
+# Hopper-v2 keeps default SAC init_temp from official configs
+alpha_init: 1e-2
+
+# iq-learn objective
+# Hopper-v2 in official run_mujoco.sh uses method.loss=v0
+iq_loss: "v0"
+iq_regularize: true
+iq_alpha: 0.5
+iq_div: null
+iq_chi: false

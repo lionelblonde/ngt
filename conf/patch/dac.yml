@@ -1,0 +1,7 @@
+# algo
+# dac maps to dac in this codebase
+method: "dac"
+grad_pen: true
+
+# entropy regularization
+ent_reg_scale: 0.

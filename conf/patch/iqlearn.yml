@@ -1,0 +1,34 @@
+# algo
+method: "iqlearn"
+# official IQ-Learn mujoco setup is one-step TD in the critic loss
+
+# sac temperature
+# official IQ-Learn IL setup uses fixed alpha (no alpha autotuning)
+autotune: false
+# fixed entropy temperature alpha
+# official values are task-specific:
+# - 1e-2 works for most mujoco tasks
+# - 1.0 is the high end of the sweep
+# sensible sweep: [1e-3, 1e-2, 1e-1, 1.0]
+alpha_init: 1e-2
+
+# iq-learn objective
+# second-term sampling strategy:
+# - "value": policy+expert states (official online mujoco default)
+# - "value_expert": expert-only states (common offline IL variant)
+# - "v0": initial-state value term (used in some official task scripts)
+iq_loss: "value"
+# include chi2 regularization on mixed policy+expert samples
+# official mujoco scripts use this as `method.regularize=true`
+iq_regularize: true
+# chi2 coefficient used as 1 / (4 * iq_alpha)
+# lower value -> stronger regularization
+# sensible sweep: [0.1, 0.25, 0.5, 1.0]
+iq_alpha: 0.5
+# optional divergence reweighting for the first IQ term
+# null means no extra reweighting (plain objective)
+# options: "hellinger", "kl", "kl2", "kl_fix", "js", "chi"
+iq_div: null
+# legacy expert-only chi2 term from official code path
+# usually keep false if iq_regularize is already true
+iq_chi: false

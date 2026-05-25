@@ -1,0 +1,17 @@
+# algo
+method: "diffail"
+grad_pen: true
+one_sided_pen: false
+
+# optimizer
+reward_lr: 3e-5
+
+# gradient penalty
+grad_pen_targ: 1.0
+grad_pen_scale: 0.5
+
+# diffusion discriminator
+diffail_n_timesteps: 10
+diffail_beta_schedule: "linear"
+reward_archi: "128x128x128"  # official DiffAIL Hopper uses 256x256x256
+diffail_clamp_magnitude: 0.0

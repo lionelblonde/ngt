@@ -1,0 +1,5 @@
+# algo
+method: "bc"
+
+# training mode
+num_bc_iters: 10_000_000

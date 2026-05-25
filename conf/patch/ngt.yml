@@ -1,0 +1,37 @@
+# algo
+method: "ngt"
+
+grad_pen: false
+one_sided_pen: true
+
+prior_spectral_norm: true  # for ngt prior
+predictor_spectral_norm: true  # for ngt predictor
+
+# ngt model
+out_emb_dim: 64
+monitor_prior_emb: false
+tighter_percentile_range: false
+reward_shaping: "symexp"
+# choices: linear, symexp
+criteria: "huber-huber"
+# only 1-Lipschitz allowed for training; if hl_gauss for training, it must be used to for inference (size compatibility)
+# choices:
+# huber-max
+# huber-softmax_max
+# huber-lp8
+# huber-topk
+# huber-huber
+# huber-mse
+# huber-mse_softmax
+# hl_gauss
+hlg_radius: 3.0
+# values to test: 1.0, 3.0, 6.0, 8.0 [3.0 seems enough]
+hlg_bins: 21
+hlg_coeff: 1.5
+# values to test: 0.5, 0.75, 1.5 (sigma is defined internally as hlg_coeff * bin_width)
+
+# ngt objective
+p_proportion_of_exp_per_update: 1.0
+e_proportion_of_exp_per_update: 1.0
+advers_p_ascent_scale: 1.0
+# controls how much to "push up" on agent data; pick in 0.5-1.0; 0.0 ~= RED

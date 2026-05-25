@@ -1,0 +1,31 @@
+# algo
+method: "p2il"
+# official P2IL mujoco setup is one-step TD in the critic objective
+
+# sac temperature
+# keep alpha fixed for parity with official runs
+autotune: false
+alpha_init: 1e-2
+
+# p2il objective
+# same value term options as IQ-Learn: "value_expert", "value", "v0"
+iq_loss: "value"
+iq_regularize: true
+iq_alpha: 0.5
+iq_chi: false
+iq_div: null
+# maps to official `agent.tau`
+p2il_tau: 1.0
+# maps to official `agent.online`
+p2il_online: false
+# official ppil_loss has 20 inner optimization steps
+p2il_inner_steps: 20
+# reduce outer-loop updates since each P2IL update already has heavy inner optimization
+num_updates_per_iter: 1
+# official uses current critic for next_v in ppil grid runs
+p2il_use_target: false
+# official default is hard target updates
+p2il_soft_target_update: false
+p2il_target_update_frequency: 1
+# official lambda for optional gradient penalty
+p2il_lambda_gp: 10.0

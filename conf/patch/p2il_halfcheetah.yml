@@ -1,0 +1,34 @@
+# algo
+method: "p2il"
+# official P2IL mujoco setup is one-step TD in the critic objective
+
+# optimizer
+# official deep_PPIL README uses lower actor lr for HalfCheetah-v2
+actor_lr: 3e-5
+
+# sac temperature
+# keep alpha fixed for parity with official runs
+autotune: false
+alpha_init: 1e-2
+
+# p2il objective
+# official HalfCheetah-v2 command uses value_expert + regularize
+iq_loss: "value_expert"
+iq_regularize: true
+iq_alpha: 0.5
+iq_chi: false
+iq_div: null
+
+# maps to official `agent.tau`
+p2il_tau: 0.08
+# maps to official `agent.online`
+p2il_online: false
+# official ppil_loss has 20 inner optimization steps
+p2il_inner_steps: 20
+# official uses current critic for next_v in ppil runs
+p2il_use_target: false
+# official default is hard target updates
+p2il_soft_target_update: false
+p2il_target_update_frequency: 1
+# official lambda for optional gradient penalty
+p2il_lambda_gp: 10.0

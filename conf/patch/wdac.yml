@@ -1,0 +1,5 @@
+# algo
+# wdac maps to wdac in this codebase
+method: "wdac"
+grad_pen: true
+one_sided_pen: false  # canonical WGAN-GP uses two-sided penalty

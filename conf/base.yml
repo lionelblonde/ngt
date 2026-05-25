@@ -1,0 +1,73 @@
+# base config
+# NOTE: keep this file read-only; apply changes via patch files in conf/patch/.
+
+# resources
+cuda: true
+cudagraphs: true
+
+# env
+sync_vec_env: true
+num_envs: 1
+capture_video: false
+
+# logging
+wandb_project: "ngt-pytorch"
+measure_burnin: 3
+eval_every: 2_000
+eval_steps: 10
+num_eval_passes_to_average: 20
+
+# training mode
+num_timesteps: 1_000_000
+learning_starts: 2_500  # don't be on `eval_every` tick
+normalize_obs: true
+normalize_obs_for_reward: true
+
+# evaluation mode
+num_episodes: 10
+
+# model
+layer_norm: true  # for actor and critic
+nonlinearity: "silu"
+input_mode: "sa"
+# options: "sa", "ss"
+reward_archi: "128x128x128"
+# options: "128x128x128", "256x256", "512x512", "256x256x256"
+
+# optim
+actor_lr: 1e-4
+qnets_lr: 2e-4
+reward_lr: 5e-5
+clip_norm: 20.0
+log_alpha_lr: 3e-4
+
+# off-policy algo base
+batch_size: 256
+gamma: 0.99
+rb_capacity: 500_000
+polyak: 0.005
+
+# U2D ratio: how many updates per transition collected?
+segment_len: 1
+num_updates_per_iter: 1
+
+# algo: SAC (default)
+bcq_style_targ_mix: false
+alpha_init: 0.2
+autotune: true
+ball_targ_ent: false
+
+# reward/data
+demo_start_trim: 0
+cap_e_batch_size_to_dataset_len: true
+real_valued_reward: true
+
+# regularization
+grad_pen: false
+# turning it on can reduce throughput noticeably
+grad_pen_targ: 1.
+grad_pen_scale: 10.
+one_sided_pen: false
+
+# algorithm
+method: null

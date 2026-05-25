@@ -1,0 +1,72 @@
+[project]
+name = "ngt-pytorch"
+version = "0.1.0"
+description = "Official PyTorch implementation of Noise-Guided Transport (NGT)"
+authors = [
+    {name = "Lionel Blondé"}
+]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "beartype>=0.19.0",
+    "einops>=0.8.0",
+    "omegaconf>=2.3.0",
+    "fire>=0.7.0",
+    "tqdm>=4.66.6",
+    "h5py>=3.12.1",
+    "gymnasium[mujoco]==0.29.1",
+    "mujoco==3.3.0",
+    "dm-control==1.0.28",
+    "numpy>=1.26.0",
+    "torch>=2.5.0",
+    "tensordict==0.10.0",
+    "torchrl==0.10.0",
+    "wandb==0.25.1",
+    "torchvision==0.20.0",
+    "moviepy>=1.0.3",
+    "matplotlib>=0",
+    "rliable>=1.2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    # linters
+    "ruff-lsp",
+    "pyright",
+]
+prod = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+sources = ["src"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+include = ["*.py", "agents", "helpers", "results"]
+
+[tool.ruff]
+line-length = 99
+preview = false
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "E", "F", "W", "N", "A", "B", "C4", "T20", "PTH", "ERA", "FLY", "NPY", "RUF",
+    "BLE", "FBT", "COM", "DTZ", "ISC", "ICN", "G", "PIE", "Q", "RSE", "RET", "SIM",
+    "TID", "TRY", "PERF", "FURB", "LOG", "TD",
+    "PL",
+]
+ignore = [
+    "PLR0904", "PLR0911", "PLR0912", "PLR0913", "PLR0914", "PLR0915", "PLR0916", "PLR0917",
+    "SIM102", "TRY003", "TD003",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+line-ending = "lf" # lines end with line feed (\n)
