@@ -3,7 +3,7 @@
 Official PyTorch implementation of Noise-Guided Transport (NGT),
 along with imitation learning baselines.
 
-_The NGT paper was accepted at ICML 2026; this repository also includes functionality developed after the experiments reported in the paper. A link to the published paper will be added when available._
+_The NGT paper, [Noise-Guided Transport: Imitation Learning from Random Priors](https://proceedings.mlr.press/v306/blonde26a.html), was published at ICML 2026. This repository also includes functionality developed after the experiments reported in the paper._
 
 ## setup
 
@@ -84,3 +84,24 @@ Notes:
 
 For instructions on downloading logged results and generating plots, see
 [`src/results/README.md`](src/results/README.md).
+
+## citation
+
+If you use this work, please cite the [official paper](https://proceedings.mlr.press/v306/blonde26a.html):
+
+```bibtex
+@InProceedings{pmlr-v306-blonde26a,
+  title = {Noise-Guided Transport: Imitation Learning from Random Priors},
+  author = {Blond\'{e}, Lionel and Candido Ramos, Joao and Kalousis, Alexandros},
+  booktitle = {Proceedings of the 43rd International Conference on Machine Learning},
+  pages = {8618--8643},
+  year = {2026},
+  editor = {Zhang, Tong and Dudik, Miroslav and Jaggi, Martin and Agarwal, Alekh and Li, Sharon and Schuurmans, Dale and Zhu, Jerry and Berkenkamp, Felix and Dong, Hanze and Bietti, Alberto},
+  volume = {306},
+  series = {Proceedings of Machine Learning Research},
+  month = {06--11 Jul},
+  publisher = {PMLR},
+  pdf = {https://raw.githubusercontent.com/mlresearch/v306/main/assets/blonde26a/blonde26a.pdf},
+  url = {https://proceedings.mlr.press/v306/blonde26a.html}
+}
+```
