@@ -3,7 +3,11 @@
 Official PyTorch implementation of Noise-Guided Transport (NGT),
 along with imitation learning baselines.
 
-_The NGT paper, [Noise-Guided Transport: Imitation Learning from Random Priors](https://proceedings.mlr.press/v306/blonde26a.html), was published at ICML 2026. This repository also includes functionality developed after the experiments reported in the paper._
+**The NGT paper,
+[Noise-Guided Transport: Imitation Learning from Random Priors](https://proceedings.mlr.press/v306/blonde26a.html),
+was published at ICML 2026.**
+
+_This repository also includes functionality developed after the experiments reported in the paper._
 
 ## setup
 
